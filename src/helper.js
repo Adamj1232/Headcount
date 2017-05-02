@@ -17,29 +17,47 @@ export default class DistrictRepository {
   }
 
   findByName = (districtName) => {
-    let matches = {}
+    let matchesByName = {}
     if(!districtName) {
       return undefined
     }
     Object.keys(this.data).filter(district => {
+      // let districtNameRegEx = new RegExp('/('+ districtName + ')/ig')
       if(district.toLowerCase() == districtName.toLowerCase()){
         // console.log(district)
-        matches.location = district
-        matches.data = this.data[district]
+        matchesByName.location = district
+        matchesByName.data = this.data[district]
         Object.keys(this.data[district]).forEach(year =>{
           if(this.data[district][year] === 'N/A'){
             this.data[district][year] = 0
           }
           this.data[district][year]= Math.round(1000*this.data[district][year])/1000
-          console.log(Math.round(1000*this.data[district][year])/1000)
         })
-        // console.log(matches)
       }
     })
-    if(!matches.location) {
+    if(!matchesByName.location) {
       return undefined
-    } else {
+    }
+    return matchesByName
+  }
+
+  findAllMatches = (findThese) => {
+    let matches = []
+    if(!findThese){
+      Object.keys(this.data).filter( location => {
+        matches.push( {[location] :this.data[location]} )
+      })
       return matches
     }
+    Object.keys(this.data).filter( district => {
+      let lowerCaseDistrict = district.toLowerCase()
+      let lowerCaseFind = findThese.toLowerCase()
+      // console.log(district)
+      if(lowerCaseDistrict.includes(lowerCaseFind)){
+        matches.push( {[district] :this.data[district]} )
+      }
+    })
+    // console.log(matches)
+    return matches
   }
 }
