@@ -42,6 +42,4 @@ export default class DistrictRepository {
       return matches
     }
   }
-
-  // Math.round(100*X)/100
 }
