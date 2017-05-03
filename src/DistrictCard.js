@@ -1,13 +1,10 @@
 import React from 'react'
 import DistrictYear from './DistrictYear'
 
-const DistrictCard = ({ district, dataSet }) => {
-  console.log(Object.values(dataSet))
-  const districtHere = district
-  const yearArray = Object.values(dataSet).map( (year, index) => {
-    <DistrictYear key={index} year={year}/>
-    // console.log(yearArray)
-  })
+const DistrictCard = ({ district, districtSet }) => {
+  const yearArray = Object.keys(districtSet).map( (year, yearIndex) =>
+    <DistrictYear key={yearIndex} year={year} data={districtSet[year]}/>
+  ) 
   return (
       <div>
         <div>{district}</div>
