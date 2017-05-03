@@ -7,7 +7,7 @@ export default class DistrictRepository {
     const scrubData = info.reduce((accu, obj) => {
       const year = obj.TimeFrame
       let objData = obj.Data
-      objData === 'N/A' ? objData = 0 : objData = Math.round(1000 * objData)/1000
+      isNaN(objData) ? objData = 0 : objData = Math.round(1000 * objData)/1000
       !accu[obj.Location] ?
         accu[obj.Location] = {[year] : objData} :
         accu[obj.Location][year] = objData

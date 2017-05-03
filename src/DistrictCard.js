@@ -6,7 +6,7 @@ const DistrictCard = ({ district, districtSet }) => {
     <DistrictYear key={yearIndex} year={year} data={districtSet[year]}/>
   ) 
   return (
-      <div>
+      <div className='card'>
         <div>{district}</div>
         <div>{yearArray}</div>
       </div>
