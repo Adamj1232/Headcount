@@ -4,16 +4,15 @@ export default class DistrictRepository {
   }
 
   cleaner = (info) => {
-    const newData = []
-    info.reduce((accu, obj) => {
+    const scrubData = info.reduce((accu, obj) => {
       const year = obj.TimeFrame
       const objData = obj.Data
       !accu[obj.Location] ?
         accu[obj.Location] = {[year] : objData} :
         accu[obj.Location][year] = objData
         return accu
-      }, newData)
-    return newData
+      }, {})
+    return scrubData
   }
 
   findByName = (districtName) => {
