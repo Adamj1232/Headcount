@@ -1,16 +1,33 @@
-import React from 'react';
-import DistrictCard from './DistrictCard'
+import React, { Component } from 'react';
+import App from './App'
 
-export const Main = ({ dataSet }) => {
+export default class Main extends Component {
+  constructor(){
+    super()
+    this.state = {
+      search: ''
+    }
+  }
   // console.log(dataSet)
-  const districtArray = Object.keys(dataSet).map( (district, index) => <DistrictCard district={district} index={index} districtSet={dataSet[district]}/>)
-  return(
+  // createDistrictArray ({ dataSet }) => {
+  // return Object.keys(dataSet).map( (district, index) => <DistrictCard district={district} index={index} districtSet={dataSet[district]}/>)
+  // }
+
+  handleChange(e) {
+    this.setState({search: e.target.value})
+    console.log(this.state)
+  }
+
+  submitIdea() {
+    this.props.handleSearch(this.state);
+    this.setState({search:''})
+  }
+
+  render(){
+    return(
     <div>
-      {districtArray}
+      <input type="text" value={this.state.search} placeholder="search for district" onChange={(e) => this.handleChange(e) }></input>
     </div>
     )
-
-
+  }
 }
-
-export default Main

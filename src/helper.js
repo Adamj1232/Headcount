@@ -17,6 +17,7 @@ export default class DistrictRepository {
   }
 
   findByName = (districtName) => {
+    console.log('Im here!')
     let matchesByName = {}
     if(!districtName) {
       return undefined
