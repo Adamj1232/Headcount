@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-// import kinderData from '../data/kindergartners_in_full_day_program.js';
+import kinderData from '../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js'
 import Main from './Main'
 
 class App extends Component {
-  constructor (DistrictRepository) {
+  constructor () {
     super ()
+    const dataSetRetrieve = new DistrictRepository(kinderData)
     this.state = {
-      dataSet: DistrictRepository.data
+      dataSet: dataSetRetrieve.data
     }
   }
   render() {
