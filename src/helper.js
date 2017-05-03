@@ -6,7 +6,8 @@ export default class DistrictRepository {
   cleaner = (info) => {
     const scrubData = info.reduce((accu, obj) => {
       const year = obj.TimeFrame
-      const objData = obj.Data
+      let objData = obj.Data
+      objData === 'N/A' ? objData = 0 : objData = Math.round(1000 * objData)/1000
       !accu[obj.Location] ?
         accu[obj.Location] = {[year] : objData} :
         accu[obj.Location][year] = objData
@@ -26,12 +27,6 @@ export default class DistrictRepository {
         // console.log(district)
         matchesByName.location = district
         matchesByName.data = this.data[district]
-        Object.keys(this.data[district]).forEach(year =>{
-          if(this.data[district][year] === 'N/A'){
-            this.data[district][year] = 0
-          }
-          this.data[district][year]= Math.round(1000*this.data[district][year])/1000
-        })
       }
     })
     if(!matchesByName.location) {
