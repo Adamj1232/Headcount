@@ -3,7 +3,7 @@ import DistrictCard from './DistrictCard'
 
 export const Main = ({ dataSet }) => {
   // console.log(dataSet)
-  const districtArray = Object.keys(dataSet).map( (district, index) => <DistrictCard district={district} dataSet={dataSet}/>)
+  const districtArray = Object.keys(dataSet).map( (district, index) => <DistrictCard district={district} index={index} districtSet={dataSet[district]}/>)
   return(
     <div>
       {districtArray}
