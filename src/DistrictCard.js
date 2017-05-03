@@ -1,6 +1,7 @@
 import React from 'react'
 
 const DistrictCard = ({district}) => {
+  console.log(district)
   for(let i in district){
     return(
       <div>
