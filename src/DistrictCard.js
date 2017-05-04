@@ -10,7 +10,7 @@ const DistrictCard = ({ district, districtSet }) => {
 
   return (
       <div className='card'>
-        <div>{district}</div>
+        <h3>{district}</h3>
         <div>{yearArray}</div>
       </div>
     )

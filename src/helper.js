@@ -25,7 +25,6 @@ export default class DistrictRepository {
     Object.keys(this.data).filter(district => {
       // let districtNameRegEx = new RegExp('/('+ districtName + ')/ig')
       if(district.toLowerCase() == districtName.toLowerCase()){
-        // console.log(district)
         matchesByName.location = district
         matchesByName.data = this.data[district]
       }
@@ -47,7 +46,6 @@ export default class DistrictRepository {
     Object.keys(this.data).filter( district => {
       let lowerCaseDistrict = district.toLowerCase()
       let lowerCaseFind = findThese.toLowerCase()
-      // console.log(district)
       if(lowerCaseDistrict.includes(lowerCaseFind)){
         matches.push( {[district] :this.data[district]} )
       }
@@ -57,16 +55,14 @@ export default class DistrictRepository {
 
   compareDistrictAverages = (districtA, districtB) => {
     const averageA = this.findAverage(districtA)
-
     const averageB = this.findAverage(districtB)
-
     const comparedAverage = Math.round(1000 * (averageA/averageB))/1000
 
     return {
              [districtA.toUpperCase()]: averageA,
              [districtB.toUpperCase()]: averageB,
-            'compared': comparedAverage
-           }
+             'compared': comparedAverage
+            }
   }
 
   findAverage = (districtName) => {
