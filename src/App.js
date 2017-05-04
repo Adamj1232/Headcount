@@ -4,6 +4,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js'
 import Main from './Main'
 import DistrictCard from './DistrictCard'
+import SelectedCards from './SelectedCards'
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
     this.dataSetRetrieve = new DistrictRepository(kinderData)
     this.state = {
       dataSet: this.dataSetRetrieve.findAllMatches(),
-      // selectedCards: []
+      selectedCards: []
     }
   }
 
@@ -23,13 +24,35 @@ class App extends Component {
     console.log(this.state.dataSet)
   }
 
+  handleCardSelect(selectedLocations) {
+    if(this.state.selectedCards.length >= 2) {
+      if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
+       throw new Error('Compare Different Districts!')
+      }
+      this.state.selectedCards.shift()
+      this.state.selectedCards.push(selectedLocations)
+    } else {
+      if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
+       throw new Error('Compare Different Districts!')
+      }
+      this.state.selectedCards.push(selectedLocations)
+    }
+    this.setState({
+      selectedCards: this.state.selectedCards
+    })
+  }
+
+  findSelectedCards(cards) {
+    cards.map (location => this.dataSetRetrieve.findByName(location))
+  }
+
   render() {
     const newArr = []
     let districtArray = []
     this.state.dataSet.forEach( location => {
       let region = Object.keys(location)
       newArr.push(region[0])
-      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} />)
+      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)} />)
     })
 
     return (
@@ -38,6 +61,9 @@ class App extends Component {
         <Main
           handleSearch={this.findByName.bind(this)}
         />
+        <section className='selected-cards'>
+          <SelectedCards selectedArr={this.state.selectedCards} findCards={this.findSelectedCards.bind(this)}/>
+        </section>
         <section className='card-holder'>
           {districtArray}
         </section>
