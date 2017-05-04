@@ -5,6 +5,7 @@ const DistrictCard = ({ district, districtSet }) => {
   const yearArray = Object.keys(districtSet).map( (year, yearIndex) =>
     <DistrictYear key={yearIndex} year={year} data={districtSet[year]}/>
   ) 
+  // console.log(yearArray)
   return (
       <div className='card'>
         <div>{district}</div>
