@@ -26,17 +26,11 @@ class App extends Component {
     const newArr = []
     let districtArray = []
     this.state.dataSet.forEach( location => {
-      // console.log(Object.keys(location))
       let region = Object.keys(location)
       newArr.push(region[0])
-      // console.log(newArr)
-      districtArray = newArr.map( (district, index) => <DistrictCard district={district} index={index} districtSet={this.state.dataSet[index]}/>)
+      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]}/>)
     })
 
-    // districtSet={this.state.dataSet[district]}
-    // const districtArray =
-    //  let keys = Object.keys(this.state.dataSet)
-    //  Object.keys(this.state.dataSet).map( (district, index) => <DistrictCard district={district} index={index} districtSet={this.state.dataSet[district]}/>)
     return (
       <div>
         <div>Welcome To Headcount 2.0</div>
