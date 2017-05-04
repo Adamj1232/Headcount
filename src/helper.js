@@ -17,7 +17,7 @@ export default class DistrictRepository {
   }
 
   findByName = (districtName) => {
-    console.log('Im here!')
+
     let matchesByName = {}
     if(!districtName) {
       return undefined
@@ -52,7 +52,32 @@ export default class DistrictRepository {
         matches.push( {[district] :this.data[district]} )
       }
     })
-    console.log(matches)
     return matches
+  }
+
+  compareDistrictAverages = (districtA, districtB) => {
+    const averageA = this.findAverage(districtA)
+
+    const averageB = this.findAverage(districtB)
+
+    const comparedAverage = Math.round(1000 * (averageA/averageB))/1000
+
+    return {
+             [districtA.toUpperCase()]: averageA,
+             [districtB.toUpperCase()]: averageB,
+            'compared': comparedAverage
+           }
+  }
+
+  findAverage = (districtName) => {
+    const dataObject = this.findByName(districtName).data
+
+    const reducedAverage = Object.keys(dataObject).reduce( (acc, year) => {
+      return acc + dataObject[year]
+    }, 0)
+
+    const average = reducedAverage / Object.keys(dataObject).length
+
+    return Math.round(1000 * average)/1000
   }
 }
