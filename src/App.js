@@ -11,7 +11,8 @@ class App extends Component {
     super ()
     this.dataSetRetrieve = new DistrictRepository(kinderData)
     this.state = {
-      dataSet: this.dataSetRetrieve.findAllMatches()
+      dataSet: this.dataSetRetrieve.findAllMatches(),
+      selectedCards: []
     }
   }
 
@@ -28,7 +29,7 @@ class App extends Component {
     this.state.dataSet.forEach( location => {
       let region = Object.keys(location)
       newArr.push(region[0])
-      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]}/>)
+      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} />)
     })
 
     return (
