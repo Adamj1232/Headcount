@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   findByName(input) {
+    console.log(input)
     let searchedMatches = this.dataSetRetrieve.findAllMatches(input)
     this.setState({dataSet: searchedMatches })
     console.log(this.state.dataSet)
