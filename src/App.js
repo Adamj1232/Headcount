@@ -11,16 +11,26 @@ class App extends Component {
     super ()
     this.dataSetRetrieve = new DistrictRepository(kinderData)
     this.state = {
-      dataSet: this.dataSetRetrieve.data
+      dataSet: this.dataSetRetrieve.findAllMatches()
     }
   }
 
-  findByName() {
-    this.dataSetRetrieve.findAllMatches()
+  findByName(input) {
+    console.log(input)
+    let searchedMatches = this.dataSetRetrieve.findAllMatches(input)
+    this.setState({dataSet: searchedMatches })
+    console.log(this.state.dataSet)
   }
 
   render() {
-    const districtArray = Object.keys(this.state.dataSet).map( (district, index) => <DistrictCard district={district} index={index} districtSet={this.state.dataSet[district]}/>)
+    const newArr = []
+    let districtArray = []
+    this.state.dataSet.forEach( location => {
+      let region = Object.keys(location)
+      newArr.push(region[0])
+      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]}/>)
+    })
+
     return (
       <div>
         <div>Welcome To Headcount 2.0</div>
