@@ -12,7 +12,7 @@ class App extends Component {
     this.dataSetRetrieve = new DistrictRepository(kinderData)
     this.state = {
       dataSet: this.dataSetRetrieve.findAllMatches(),
-      selectedCards: []
+      // selectedCards: []
     }
   }
 
@@ -34,9 +34,13 @@ class App extends Component {
 
     return (
       <div>
-        <div>Welcome To Headcount 2.0</div>
-        <Main handleSearch={this.findByName.bind(this)}/>
-        {districtArray}
+        <header>Welcome To Headcount 2.0</header>
+        <Main
+          handleSearch={this.findByName.bind(this)}
+        />
+        <section className='card-holder'>
+          {districtArray}
+        </section>
       </div>
     );
   }
