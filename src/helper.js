@@ -12,7 +12,7 @@ export default class DistrictRepository {
         accu[obj.Location] = {[year] : objData} :
         accu[obj.Location][year] = objData
         return accu
-      }, {})
+      }, [])
     return scrubData
   }
 
@@ -52,7 +52,7 @@ export default class DistrictRepository {
         matches.push( {[district] :this.data[district]} )
       }
     })
-    // console.log(matches)
+    console.log(matches)
     return matches
   }
 }
