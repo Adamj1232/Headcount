@@ -2,6 +2,7 @@ import React from 'react'
 import DistrictYear from './DistrictYear'
 
 const DistrictCard = ({ district, districtSet, districtSelect }) => {
+  // console.log(district, districtSet)
   let locationKeys = Object.keys(districtSet)
   // let yearKeys = Object.keys(districtSet[locationKeys])
   const yearArray = Object.keys(districtSet[locationKeys]).map( (year, yearIndex) =>

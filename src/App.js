@@ -4,7 +4,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js'
 import Main from './Main'
 import DistrictCard from './DistrictCard'
-import SelectedCards from './SelectedCards'
+import ComparisonCard from './ComparisonCard'
 
 
 class App extends Component {
@@ -42,9 +42,9 @@ class App extends Component {
     })
   }
 
-  findSelectedCards(cards) {
-    cards.map (location => this.dataSetRetrieve.findByName(location))
-  }
+  // findSelectedCards(cards) {
+  //   cards
+  // }
 
   render() {
     const newArr = []
@@ -55,6 +55,11 @@ class App extends Component {
       districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)} />)
     })
 
+    // const fullCards = this.state.selectedCards.map ((district) => this.dataSetRetrieve.findByName(district))
+    // const selectedArray = fullCards.map ((district, index) => {
+    //   <DistrictCard district={district} key={index} districtSet={fullCards[index]} />
+    // })
+
     return (
       <div>
         <header>Welcome To Headcount 2.0</header>
@@ -62,7 +67,7 @@ class App extends Component {
           handleSearch={this.findByName.bind(this)}
         />
         <section className='selected-cards'>
-          <SelectedCards selectedArr={this.state.selectedCards} findCards={this.findSelectedCards.bind(this)}/>
+          <ComparisonCard cardsToCompare={this.state.selectedCards} dataSet={this.dataSetRetrieve} />
         </section>
         <section className='card-holder'>
           {districtArray}
