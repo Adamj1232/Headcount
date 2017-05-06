@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const SelectedCards = ({cardsToCompare, dataSet}) => {
-
+  
 if(!cardsToCompare.length){
   return (
     <div></div>
@@ -14,8 +14,8 @@ if(!cardsToCompare.length){
   const comparisonData = Object.keys(comparisonObject).map( (key) => {
     return (
       <div>
-        <div>{key}</div>
-        <div>{comparisonObject[key]}</div>
+        <div className="comparison-district">{key}</div>
+        <div className="comparison-average">{comparisonObject[key]}</div>
       </div>
     )
   })

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ComparedCard from './ComparedCard';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('DistrictCard', () => {
 
