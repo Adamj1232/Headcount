@@ -17,7 +17,6 @@ header {
   display: flex;
   justify-content: center;
   font-family: 'Pacifico', cursive;
-
 }
 
 h3 {
@@ -45,6 +44,7 @@ nav input {
   width: 280px;
   height: 280px;
   background-color: oldlace;
+  border-radius: 10px;
 }
 
 .green {
@@ -63,4 +63,23 @@ nav input {
 
 .card-data {
   font-weight: 700;
+}
+
+.selected {
+  background-color: pink;
+}
+
+.compared {
+  display: inline-block;
+}
+
+.selected-cards {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+.location {
+  margin: 20px auto 0;
+  text-decoration: underline;
 }

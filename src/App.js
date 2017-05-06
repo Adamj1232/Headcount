@@ -5,6 +5,7 @@ import DistrictRepository from './helper.js'
 import Main from './Main'
 import DistrictCard from './DistrictCard'
 import ComparisonCard from './ComparisonCard'
+import ComparedCard from './ComparedCard'
 
 
 class App extends Component {
@@ -18,10 +19,8 @@ class App extends Component {
   }
 
   findByName(input) {
-    console.log(input)
     let searchedMatches = this.dataSetRetrieve.findAllMatches(input)
     this.setState({dataSet: searchedMatches })
-    console.log(this.state.dataSet)
   }
 
   handleCardSelect(selectedLocations) {
@@ -42,9 +41,6 @@ class App extends Component {
     })
   }
 
-  // findSelectedCards(cards) {
-  //   cards
-  // }
 
   render() {
     const newArr = []
@@ -52,13 +48,15 @@ class App extends Component {
     this.state.dataSet.forEach( location => {
       let region = Object.keys(location)
       newArr.push(region[0])
-      districtArray = newArr.map( (district, index) => <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)} />)
+      districtArray = newArr.map( (district, index) =>
+       <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)}
+      selectedCards={this.state.selectedCards} />)
     })
 
-    // const fullCards = this.state.selectedCards.map ((district) => this.dataSetRetrieve.findByName(district))
-    // const selectedArray = fullCards.map ((district, index) => {
-    //   <DistrictCard district={district} key={index} districtSet={fullCards[index]} />
-    // })
+
+    let selectedCard = this.state.selectedCards
+    let selectedCard1 = this.dataSetRetrieve.findByName(selectedCard[0]) || {location: null, data: null}
+    let selectedCard2 = this.dataSetRetrieve.findByName(selectedCard[1]) || {location: null, data: null}
 
     return (
       <div>
@@ -67,7 +65,21 @@ class App extends Component {
           handleSearch={this.findByName.bind(this)}
         />
         <section className='selected-cards'>
-          <ComparisonCard cardsToCompare={this.state.selectedCards} dataSet={this.dataSetRetrieve} />
+          <ComparedCard
+            district={selectedCard1.location}
+            dataSet={selectedCard1.data}
+            cardsToCompare={this.state.selectedCards}
+            key={1}
+          />
+          <ComparisonCard
+            cardsToCompare={this.state.selectedCards} dataSet={this.dataSetRetrieve}
+          />
+          <ComparedCard
+            district={selectedCard2.location}
+            dataSet={selectedCard2.data}
+            cardsToCompare={this.state.selectedCards}
+            key={2}
+          />
         </section>
         <section className='card-holder'>
           {districtArray}

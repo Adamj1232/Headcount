@@ -61,12 +61,12 @@ export default class DistrictRepository {
     return {
              [districtA.toUpperCase()]: averageA,
              [districtB.toUpperCase()]: averageB,
-             'compared': comparedAverage
+             'Compared': comparedAverage
             }
   }
 
   findAverage = (districtName) => {
-    const dataObject = this.findByName(districtName).data
+    let dataObject = this.findByName(districtName).data
 
     const reducedAverage = Object.keys(dataObject).reduce( (acc, year) => {
       return acc + dataObject[year]
