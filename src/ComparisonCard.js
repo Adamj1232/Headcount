@@ -1,6 +1,8 @@
 import React from 'react'
 import DistrictCard from './DistrictCard'
 
+
+
 const SelectedCards = ({cardsToCompare, dataSet}) => {
 
 if(!cardsToCompare.length){
@@ -12,15 +14,28 @@ if(!cardsToCompare.length){
   const comparisonObject = dataSet.compareDistrictAverages(cardsToCompare[0], cardsToCompare[1])
   const comparisonData = Object.keys(comparisonObject).map( (key) => {
     return (
-      <section>
-        <div className='location'>{key}</div>
-        <div>{comparisonObject[key]} Averaged Attendance</div>
-      </section>
+      <div>
+        <div>{key}</div>
+        <div>{comparisonObject[key]}</div>
+      </div>
     )
   })
 
+//   const comparedCards = cardsToCompare.map((district) =>
+//     dataSet.findByName(district)
+//   )
+//
+// console.log(comparedCards)
+//
+//   const comparisonCards = comparedCards.map((district, index) => {
+//     return <DistrictCard district={district.location} key={index+25} districtSet={district.data} />
+//   })
+//
+//   {comparisonCards}
+
   return(
-    <section className='compared'>
+
+    <section>
       <div className="card">
         <h3>{comparisonData}</h3>
       </div>
