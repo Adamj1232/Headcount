@@ -10,13 +10,15 @@ export default class Main extends Component {
 
   handleChange(e) {
     this.setState({search: e.target.value})
-    console.log(this.state)
     this.props.handleSearch(this.state.search);
+    !this.state.search.length ? this.props.handleSearch(this.state.search) : null
   }
 
-  submitIdea() {
-    this.setState({search:''})
-  }
+  // resetSearch() {
+  //   this.setState(() => {
+  //     {search:''}
+  //   })
+  // }
 
   render(){
     return(
