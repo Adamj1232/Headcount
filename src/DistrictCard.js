@@ -6,25 +6,17 @@ const DistrictCard = ({ district, districtSet, districtSelect, selectedCards }) 
   const yearArray = Object.keys(districtSet[locationKeys]).map( (year, yearIndex) =>
     <DistrictYear key={yearIndex} year={year} data={districtSet[locationKeys][year]}/>
   ) 
-  //
-  // const handleSelect = (selectedDistrict) => {
-  //   console.log(selectedDistrict)
-  //   this.props.districtSelect(selectedDistrict)
-  // }
-  // const handleClick = (e, district)=>{
-  //   districtSelect(district)
-  //   console.log(e.currentTarget.className)
-  //
-  //   if({district}.district === selectedCards[0] || {district}.district === selectedCards[1]){
-  //   e.currentTarget.className = 'card selected'
-  // } else {
-  //   e.currentTarget.className = 'card'
-  // }
-  // }
+
+  const handleClick = (e, district)=>{
+    districtSelect(district)
+    console.log(e.currentTarget)
+    e.currentTarget.className = 'card selected';
+    this.componentDidUpdate()
+  }
 
   if({district}.district === selectedCards[0] || {district}.district === selectedCards[1]) {
     return (
-        <div className='card selected' onClick={() => {districtSelect(district)}}>
+        <div className='card selected' onClick={(e) => {handleClick(e, district)}}>
           <h3>{district}</h3>
           <div>{yearArray}</div>
         </div>
@@ -32,10 +24,10 @@ const DistrictCard = ({ district, districtSet, districtSelect, selectedCards }) 
   }
 
   return (
-      <div className='card' onClick={() => {districtSelect( district)}}>
+      <div className='card' onClick={(e) => {handleClick(e, district)}}>
         <h3>{district}</h3>
         <div>{yearArray}</div>
       </div>
     )
-  }
+}
 export default DistrictCard
