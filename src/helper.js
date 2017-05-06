@@ -61,7 +61,7 @@ export default class DistrictRepository {
     return {
              [districtA.toUpperCase()]: averageA,
              [districtB.toUpperCase()]: averageB,
-             'Compared': comparedAverage
+             'compared': comparedAverage
             }
   }
 

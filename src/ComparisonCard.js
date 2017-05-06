@@ -36,7 +36,7 @@ if(!cardsToCompare.length){
   return(
 
     <section>
-      <div className="card">
+      <div className="card comparison">
         <h3>{comparisonData}</h3>
       </div>
     </section>
