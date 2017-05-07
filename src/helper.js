@@ -23,7 +23,6 @@ export default class DistrictRepository {
       return undefined
     }
     Object.keys(this.data).filter(district => {
-      // let districtNameRegEx = new RegExp('/('+ districtName + ')/ig')
       if(district.toLowerCase() == districtName.toLowerCase()){
         matchesByName.location = district
         matchesByName.data = this.data[district]
@@ -61,7 +60,7 @@ export default class DistrictRepository {
     return {
              [districtA.toUpperCase()]: averageA,
              [districtB.toUpperCase()]: averageB,
-             'compared': comparedAverage
+             'Compared Averages': comparedAverage
             }
   }
 

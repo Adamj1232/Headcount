@@ -6,7 +6,6 @@ import Main from './Main'
 import { DistrictCard } from './DistrictCard'
 import { ComparisonCard } from './ComparisonCard'
 import { ComparedCard } from './ComparedCard'
-import PropTypes from 'prop-types'
 
 
 export default class App extends Component {
@@ -27,12 +26,14 @@ export default class App extends Component {
   handleCardSelect(selectedLocations) {
     if(this.state.selectedCards.length >= 2) {
       if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
+        alert('Please Select Different Districts to Compare')
        throw new Error('Compare Different Districts!')
       }
       this.state.selectedCards.shift()
       this.state.selectedCards.push(selectedLocations)
     } else {
       if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
+        alert('Please Select Different Districts to Compare')
        throw new Error('Compare Different Districts!')
       }
       this.state.selectedCards.push(selectedLocations)
@@ -41,7 +42,6 @@ export default class App extends Component {
       selectedCards: this.state.selectedCards
     })
   }
-
 
   render() {
     const newArr = []
@@ -56,7 +56,6 @@ export default class App extends Component {
       selectedCards={this.state.selectedCards}/>)
     })
 
-    
     let selectedCard = this.state.selectedCards
     let selectedCard1 = this.dataSetRetrieve.findByName(selectedCard[0]) || {location: null, data: null}
     let selectedCard2 = this.dataSetRetrieve.findByName(selectedCard[1]) || {location: null, data: null}

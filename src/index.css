@@ -10,7 +10,7 @@ body {
 
 header {
   height: 100px;
-  font-size: 2.7em;
+  font-size: 3em;
   background-color: skyblue;
   font-family: sans-serif, comic-sans;
   align-items: center;
@@ -42,9 +42,13 @@ nav input {
   text-align: center;
   border: 1px solid black;
   width: 280px;
-  height: 280px;
+  height: 290px;
   background-color: oldlace;
   border-radius: 10px;
+}
+
+.selected h3 {
+  text-decoration: underline;
 }
 
 .green {
@@ -81,5 +85,18 @@ nav input {
 
 .location {
   margin: 20px auto 0;
+  text-decoration: underline;
+}
+
+.comparison-district {
+  text-decoration: underline;
+  margin: 15px auto 0px;
+}
+
+.comparison-average {
+  margin-top: 5px;
+}
+
+.district {
   text-decoration: underline;
 }
