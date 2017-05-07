@@ -20,7 +20,7 @@ if(!cardsToCompare.length){
 
     <section className='compared'>
       <div className="card selected">
-        <h3> {district}</h3>
+        <h3>{district}</h3>
         <div className='card-data'>{dataSetView}</div>
       </div>
     </section>
