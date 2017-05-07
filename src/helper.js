@@ -17,10 +17,11 @@ export default class DistrictRepository {
   }
 
   findByName = (districtName) => {
+    const input = ''
 
     let matchesByName = {}
     if(!districtName) {
-      return undefined
+      return input
     }
     Object.keys(this.data).filter(district => {
       if(district.toLowerCase() == districtName.toLowerCase()){
@@ -29,14 +30,14 @@ export default class DistrictRepository {
       }
     })
     if(!matchesByName.location) {
-      return undefined
+      return input
     }
     return matchesByName
   }
 
   findAllMatches = (findThese) => {
     let matches = []
-    if(!findThese){
+    if(!findThese || null){
       Object.keys(this.data).filter( location => {
         matches.push( {[location] :this.data[location]} )
       })
@@ -45,16 +46,17 @@ export default class DistrictRepository {
     Object.keys(this.data).filter( district => {
       let lowerCaseDistrict = district.toLowerCase()
       let lowerCaseFind = findThese.toLowerCase()
-      if(lowerCaseDistrict.includes(lowerCaseFind)){
+      if(lowerCaseDistrict.match(lowerCaseFind)){
         matches.push( {[district] :this.data[district]} )
       }
     })
+    // console.log(matches +'from function')
     return matches
   }
 
   compareDistrictAverages = (districtA, districtB) => {
-    const averageA = this.findAverage(districtA)
-    const averageB = this.findAverage(districtB)
+    const averageA = this.findAverage(districtA) || null
+    const averageB = this.findAverage(districtB) || null
     const comparedAverage = Math.round(1000 * (averageA/averageB))/1000
 
     return {
