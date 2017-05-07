@@ -46,6 +46,7 @@ export default class App extends Component {
   render() {
     const newArr = []
     let districtArray = []
+
     this.state.dataSet.forEach( location => {
       let region = Object.keys(location)
       newArr.push(region[0])
@@ -55,7 +56,7 @@ export default class App extends Component {
       selectedCards={this.state.selectedCards}/>)
     })
 
-
+    
     let selectedCard = this.state.selectedCards
     let selectedCard1 = this.dataSetRetrieve.findByName(selectedCard[0]) || {location: null, data: null}
     let selectedCard2 = this.dataSetRetrieve.findByName(selectedCard[1]) || {location: null, data: null}
