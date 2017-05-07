@@ -9,9 +9,9 @@ if(!cardsToCompare.length){
   )
 } else {
 
-  const dataSetView = Object.keys(dataSet).map( (location) => {
+  const dataSetView = Object.keys(dataSet).map( (location, index) => {
     return (
-      <div className={dataSet[location] > 0.5 ? 'green' : 'red'}>
+      <div className={dataSet[location] > 0.5 ? 'green' : 'red'} key={index}>
         <div>{location} : {dataSet[location]}</div>
       </div>
     )
@@ -34,5 +34,3 @@ ComparedCard.propTypes = {
   dataSet: PropTypes.object,
   cardsToCompare: PropTypes.array
 }
-
-// export default ComparedCard

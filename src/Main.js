@@ -15,19 +15,13 @@ export default class Main extends Component {
     !this.state.search.length ? this.props.handleSearch(this.state.search) : null
   }
 
-  // resetSearch() {
-  //   this.setState(() => {
-  //     {search:''}
-  //   })
-  // }
-
   render(){
     return(
     <nav>
       <input
         type="text"
         value={this.state.search}
-        placeholder="search for district"
+        placeholder="Search School Districts"
         onChange={(e) => this.handleChange(e) }>
       </input>
     </nav>

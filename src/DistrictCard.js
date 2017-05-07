@@ -10,26 +10,25 @@ export const DistrictCard = ({ district, districtSet, districtSelect, selectedCa
 
   const handleClick = (e, district)=>{
     districtSelect(district)
-    console.log(e.currentTarget)
     e.currentTarget.className = 'card selected';
     this.componentDidUpdate()
   }
 
   if({district}.district === selectedCards[0] || {district}.district === selectedCards[1]) {
     return (
-        <div className='card selected' onClick={(e) => {handleClick(e, district)}}>
-          <h3>{district}</h3>
-          <div>{yearArray}</div>
-        </div>
-      )
-  }
-
-  return (
-      <div className='card' onClick={(e) => {handleClick(e, district)}}>
+      <div className='card selected' onClick={(e) => {handleClick(e, district)}}>
         <h3>{district}</h3>
         <div>{yearArray}</div>
       </div>
     )
+  }
+
+  return (
+    <div className='card' onClick={(e) => {handleClick(e, district)}}>
+      <h3 className='district'>{district}</h3>
+      <div>{yearArray}</div>
+    </div>
+  )
 }
 
 DistrictCard.propTypes = {

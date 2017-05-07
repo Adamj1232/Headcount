@@ -1,49 +1,37 @@
 import React from 'react'
-
 import PropTypes from 'prop-types'
 import DistrictRepository from './helper.js'
 
 export const ComparisonCard = ({cardsToCompare, dataSet}) => {
 
-
-const SelectedCards = ({cardsToCompare, dataSet}) => {
-  
-if(!cardsToCompare.length){
-  return (
-    <div></div>
-  )
-} else {
-
-  const comparisonObject = dataSet.compareDistrictAverages(cardsToCompare[0], cardsToCompare[1])
-  const comparisonData = Object.keys(comparisonObject).map( (key) => {
+  if(!cardsToCompare.length){
     return (
-      <div>
-        <div className="comparison-district">{key}</div>
-        <div className="comparison-average">{comparisonObject[key]}</div>
-      </div>
+      <div></div>
     )
-  })
 
-//   const comparedCards = cardsToCompare.map((district) =>
-//     dataSet.findByName(district)
-//   )
-//
-// console.log(comparedCards)
-//
-//   const comparisonCards = comparedCards.map((district, index) => {
-//     return <DistrictCard district={district.location} key={index+25} districtSet={district.data} />
-//   })
-//
-//   {comparisonCards}
+  } else {
+    const comparisonObject = dataSet.compareDistrictAverages(cardsToCompare[0], cardsToCompare[1])
+    const comparisonData = Object.keys(comparisonObject).map( (key) => {
+      return (
+        <section>
+          <h2 className="comparison-district">
+            {key}
+          </h2>
+          <h3 className="comparison-average">
+            {comparisonObject[key]}
+          </h3>
+        </section>
+      )
+    })
 
-  return(
+    return(
 
-    <section>
-      <div className="card comparison">
-        <h3>{comparisonData}</h3>
-      </div>
-    </section>
-  )
+      <section>
+        <div className="card comparison">
+          <section>{comparisonData}</section>
+        </div>
+      </section>
+    )
   }
 }
 
