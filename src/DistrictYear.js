@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const DistrictYear = ({year, data}) => {
+export const DistrictYear = ({year, data}) => {
 
   return (
       <section className={data > 0.5 ? 'green' : 'red'}>
@@ -8,4 +9,8 @@ const DistrictYear = ({year, data}) => {
       </section>
     )
 }
-export default DistrictYear
+
+DistrictYear.propTypes = {
+  year: PropTypes.number,
+  data: PropTypes.number
+}
