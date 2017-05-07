@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 export default class Main extends Component {
   constructor(){
@@ -32,4 +33,8 @@ export default class Main extends Component {
     </nav>
     )
   }
+}
+
+Main.propTypes = {
+  handleSearch: PropTypes.func
 }

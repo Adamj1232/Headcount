@@ -2,7 +2,9 @@
   "name": "headcount",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
+  "devDependencies": 
+    {
+    "prop-types": "^15.5.8",
     "enzyme": "^2.8.2",
     "locus": "^2.0.1",
     "react-addons-test-utils": "^15.5.1",

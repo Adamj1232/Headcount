@@ -1,7 +1,8 @@
 import React from 'react'
-import DistrictYear from './DistrictYear'
+import { DistrictYear } from './DistrictYear'
+import PropTypes from 'prop-types'
 
-const DistrictCard = ({ district, districtSet, districtSelect, selectedCards }) => {
+export const DistrictCard = ({ district, districtSet, districtSelect, selectedCards }) => {
   let locationKeys = Object.keys(districtSet)
   const yearArray = Object.keys(districtSet[locationKeys]).map( (year, yearIndex) =>
     <DistrictYear key={yearIndex} year={year} data={districtSet[locationKeys][year]}/>
@@ -30,4 +31,10 @@ const DistrictCard = ({ district, districtSet, districtSelect, selectedCards }) 
       </div>
     )
 }
-export default DistrictCard
+
+DistrictCard.propTypes = {
+  district: PropTypes.string,
+  districtSet: PropTypes.object,
+  districtSelect: PropTypes.func,
+  selectedCards: PropTypes.array
+}

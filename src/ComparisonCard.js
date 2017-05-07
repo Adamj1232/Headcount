@@ -1,5 +1,9 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+import DistrictRepository from './helper.js'
+
+export const ComparisonCard = ({cardsToCompare, dataSet}) => {
 
 
 const SelectedCards = ({cardsToCompare, dataSet}) => {
@@ -43,4 +47,7 @@ if(!cardsToCompare.length){
   }
 }
 
-export default SelectedCards
+ComparisonCard.propTypes = {
+  cardsToCompare: PropTypes.array,
+  dataSet: PropTypes.instanceOf(DistrictRepository)
+}

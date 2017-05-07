@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const ComparedCard = ({district, dataSet, cardsToCompare}) => {
+export const ComparedCard = ({district, dataSet, cardsToCompare}) => {
 
 if(!cardsToCompare.length){
   return (
@@ -28,4 +29,10 @@ if(!cardsToCompare.length){
   }
 }
 
-export default ComparedCard
+ComparedCard.propTypes = {
+  district: PropTypes.string,
+  dataSet: PropTypes.object,
+  cardsToCompare: PropTypes.array
+}
+
+// export default ComparedCard

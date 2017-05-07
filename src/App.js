@@ -3,12 +3,13 @@ import './App.css';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from './helper.js'
 import Main from './Main'
-import DistrictCard from './DistrictCard'
-import ComparisonCard from './ComparisonCard'
-import ComparedCard from './ComparedCard'
+import { DistrictCard } from './DistrictCard'
+import { ComparisonCard } from './ComparisonCard'
+import { ComparedCard } from './ComparedCard'
+import PropTypes from 'prop-types'
 
 
-class App extends Component {
+export default class App extends Component {
   constructor () {
     super ()
     this.dataSetRetrieve = new DistrictRepository(kinderData)
@@ -90,5 +91,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
