@@ -62,8 +62,8 @@ export default class App extends Component {
     })
 
     let selectedCard = this.state.selectedCards
-    let selectedCard1 = this.dataSetRetrieve.findByName(selectedCard[0]) || {location: null, data: null}
-    let selectedCard2 = this.dataSetRetrieve.findByName(selectedCard[1]) || {location: null, data: null}
+    let selectedCard1 = this.dataSetRetrieve.findByName(selectedCard[0]) || {location: '', data: ''}
+    let selectedCard2 = this.dataSetRetrieve.findByName(selectedCard[1]) || {location: '', data: ''}
 
     return (
       <div>
@@ -76,7 +76,7 @@ export default class App extends Component {
             district={selectedCard1.location}
             dataSet={selectedCard1.data}
             cardsToCompare={this.state.selectedCards}
-            key={1}
+            key={Math.random()}
           />
           <ComparisonCard
             cardsToCompare={this.state.selectedCards} dataSet={this.dataSetRetrieve}
@@ -85,7 +85,7 @@ export default class App extends Component {
             district={selectedCard2.location}
             dataSet={selectedCard2.data}
             cardsToCompare={this.state.selectedCards}
-            key={2}
+            key={Math.random()}
           />
         </section>
         <section className='card-holder'>

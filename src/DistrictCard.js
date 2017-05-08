@@ -23,7 +23,7 @@ export const DistrictCard = ({ district, districtSet, districtSelect, selectedCa
   }
 
   return (
-    <div className='card' onClick={(e) => {handleClick(e, district)}}>
+    <div className='card card-hover' onClick={(e) => {handleClick(e, district)}}>
       <h3 className='district'>{district}</h3>
       <div>{yearArray}</div>
     </div>

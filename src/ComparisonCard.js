@@ -6,7 +6,7 @@ export const ComparisonCard = ({cardsToCompare, dataSet}) => {
 
   if(cardsToCompare.length !== 2){
     return (
-      <div></div>
+      <h3>Click Two Cards to Compare</h3>
     )
 
   } else {
