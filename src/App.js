@@ -25,20 +25,16 @@ export default class App extends Component {
   }
 
   handleCardSelect(selectedLocations) {
-    if(this.state.selectedCards.length >= 2) {
-      if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
-        alert('Please Select Different Districts to Compare')
-        throw new Error('Compare Different Districts!')
-      }
-      this.state.selectedCards.shift()
-      this.state.selectedCards.push(selectedLocations)
-    } else {
-      if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
-        alert('Please Select Different Districts to Compare')
-        throw new Error('Compare Different Districts!')
-      }
-      this.state.selectedCards.push(selectedLocations)
+    if (this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
+      let updatedSelect = this.state.selectedCards.filter( locations => {
+        return locations !== selectedLocations
+      })
+      return this.setState({selectedCards: updatedSelect})
     }
+    if (this.state.selectedCards.length >= 2) {
+      this.state.selectedCards.shift()
+    }
+    this.state.selectedCards.push(selectedLocations)
     this.setState({
       selectedCards: this.state.selectedCards
     })
