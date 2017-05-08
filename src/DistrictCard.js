@@ -14,7 +14,12 @@ export const DistrictCard = ({ district, districtSet, districtSelect, selectedCa
 
   const handleClick = (e, district)=>{
     districtSelect(district)
-    e.currentTarget.className = 'card selected';
+
+    if (e.currentTarget.className === 'card selected'){
+      e.currentTarget.className = 'card'
+    } else {
+      e.currentTarget.className = 'card selected'
+    }
   }
 
   if({district}.district === selectedCards[0] || {district}.district === selectedCards[1]) {

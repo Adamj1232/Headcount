@@ -7,7 +7,7 @@ export default class DistrictRepository {
     const scrubData = info.reduce((accu, obj) => {
       const year = obj.TimeFrame
       let objData = obj.Data
-      isNaN(objData) ? objData = 0 : objData = Math.round(1000 * objData)/1000
+      objData = isNaN(objData) ? 0 : Math.round(1000 * objData)/1000
       !accu[obj.Location] ?
         accu[obj.Location] = {[year] : objData} :
         accu[obj.Location][year] = objData
@@ -23,8 +23,8 @@ export default class DistrictRepository {
     if(!districtName) {
       return input
     }
-    Object.keys(this.data).filter(district => {
-      if(district.toLowerCase() == districtName.toLowerCase()){
+    Object.keys(this.data).forEach(district => {
+      if(district.toLowerCase() === districtName.toLowerCase()){
         matchesByName.location = district
         matchesByName.data = this.data[district]
       }
@@ -38,12 +38,12 @@ export default class DistrictRepository {
   findAllMatches = (findThese) => {
     let matches = []
     if(!findThese || null){
-      Object.keys(this.data).filter( location => {
+      Object.keys(this.data).forEach( location => {
         matches.push( {[location] :this.data[location]} )
       })
       return matches
     }
-    Object.keys(this.data).filter( district => {
+    Object.keys(this.data).forEach( district => {
       let lowerCaseDistrict = district.toLowerCase()
       let lowerCaseFind = findThese.toLowerCase()
       if(lowerCaseDistrict.match(lowerCaseFind)){
