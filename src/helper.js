@@ -24,7 +24,7 @@ export default class DistrictRepository {
       return input
     }
     Object.keys(this.data).filter(district => {
-      if(district.toLowerCase() == districtName.toLowerCase()){
+      if(district.toLowerCase() === districtName.toLowerCase()){
         matchesByName.location = district
         matchesByName.data = this.data[district]
       }

@@ -4,7 +4,7 @@ import { ComparedCard } from './ComparedCard';
 import { shallow } from 'enzyme';
 
 let mockDistrict = 'Colorado'
-let mockData = { 2004 : 0.24, 2005 : 0.278, 2006 : 0.337 }
+let mockData = '{ 2004 : 0.24, 2005 : 0.278, 2006 : 0.337 }'
 
 describe('DistrictCard', () => {
   let mockSelectState = ['Colorado', 'Academy 20']
