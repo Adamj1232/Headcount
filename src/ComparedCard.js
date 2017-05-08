@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export const ComparedCard = ({district, dataSet, cardsToCompare}) => {
 
-if(!cardsToCompare.length){
+if(cardsToCompare.length !== 2){
   return (
     <div></div>
   )

@@ -11,7 +11,6 @@ export const DistrictCard = ({ district, districtSet, districtSelect, selectedCa
   const handleClick = (e, district)=>{
     districtSelect(district)
     e.currentTarget.className = 'card selected';
-    this.componentDidUpdate()
   }
 
   if({district}.district === selectedCards[0] || {district}.district === selectedCards[1]) {

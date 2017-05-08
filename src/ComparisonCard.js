@@ -4,7 +4,7 @@ import DistrictRepository from './helper.js'
 
 export const ComparisonCard = ({cardsToCompare, dataSet}) => {
 
-  if(!cardsToCompare.length){
+  if(cardsToCompare.length !== 2){
     return (
       <div></div>
     )
