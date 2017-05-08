@@ -52,7 +52,7 @@ export default class App extends Component {
     this.state.dataSet.forEach( location => {
       let region = Object.keys(location)
       newArr.push(region[0])
-      // console.log(region[0])
+
       districtArray = newArr.map( (district, index) =>
         <DistrictCard
           district={district}
