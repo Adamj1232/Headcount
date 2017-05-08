@@ -31,6 +31,6 @@ if(cardsToCompare.length !== 2){
 
 ComparedCard.propTypes = {
   district: PropTypes.string,
-  dataSet: PropTypes.object,
+  dataSet: PropTypes.string,
   cardsToCompare: PropTypes.array
 }

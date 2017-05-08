@@ -23,7 +23,9 @@ export default class DistrictRepository {
     if(!districtName) {
       return input
     }
+
     Object.keys(this.data).forEach(district => {
+
       if(district.toLowerCase() === districtName.toLowerCase()){
         matchesByName.location = district
         matchesByName.data = this.data[district]
