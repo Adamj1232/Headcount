@@ -26,8 +26,10 @@ describe('DistrictCard', () => {
   })
 })
 
+
 it('should render a year component for each year of data', () => {
   const wrapper = mount(<DistrictCard district={mockDistrict} districtSet={mockData} selectedCards={[]}/>)
+
 
   expect(wrapper.find('.card-data').length).toBe(3)
   expect(wrapper.find('.card-data').first().text()).toEqual("2004 : 0.24")
