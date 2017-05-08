@@ -21,6 +21,8 @@ export default class App extends Component {
   findByName(input) {
     let searchedMatches = this.dataSetRetrieve.findAllMatches(input)
     this.setState({dataSet: searchedMatches })
+    // console.log(this.state.dataSet)
+    this.setState({dataSet: searchedMatches })
   }
 
   handleCardSelect(selectedLocations) {
@@ -52,8 +54,11 @@ export default class App extends Component {
       newArr.push(region[0])
       // console.log(region[0])
       districtArray = newArr.map( (district, index) =>
-       <DistrictCard district={district} key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)}
-      selectedCards={this.state.selectedCards}/>)
+        <DistrictCard
+          district={district}
+          key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)}
+          selectedCards={this.state.selectedCards}
+        />)
     })
 
     let selectedCard = this.state.selectedCards

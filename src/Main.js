@@ -11,8 +11,9 @@ export default class Main extends Component {
 
   handleChange(e) {
     this.setState({search: e.target.value})
-    this.props.handleSearch(this.state.search);
-    !this.state.search.length ? this.props.handleSearch(this.state.search) : null
+    console.log(e.target.value)
+    console.log(this.state)
+    this.props.handleSearch(e.target.value);
   }
 
   render(){
