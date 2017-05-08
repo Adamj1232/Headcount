@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ComparisonCard from './ComparisonCard';
+import { ComparisonCard } from './ComparisonCard';
 import { shallow } from 'enzyme';
 import DistrictRepository from './helper.js'
 import kinderData from '../data/kindergartners_in_full_day_program.js';

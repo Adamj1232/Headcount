@@ -13,6 +13,6 @@ export const DistrictYear = ({year, data}) => {
 }
 
 DistrictYear.propTypes = {
-  year: PropTypes.number,
+  year: PropTypes.string,
   data: PropTypes.number
 }

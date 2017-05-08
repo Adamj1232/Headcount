@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DistrictCard from './DistrictCard';
+import { DistrictCard } from './DistrictCard';
 import { shallow, mount } from 'enzyme';
 
 describe('DistrictCard', () => {
@@ -34,16 +34,5 @@ describe('DistrictCard', () => {
     expect(wrapper.find('.selected').length).toBe(1)
   })
 
-  it('should run a function when clicked', () => {
-    const mockSelect = jest.fn()
-    const mockDistrict = 'Colorado'
-    const mockData = {'Colorado': { 2004 : 0.24, 2005 : 0.278, 2006 : 0.337 } }
-
-    const wrapper = shallow(<DistrictCard district={mockDistrict} districtSet={mockData} districtSelect={mockSelect} selectedCards={[]}/>)
-
-    wrapper.simulate('click')
-
-    expect(mockSelect).toHaveBeenCalled()
-  })
 
 })

@@ -9,7 +9,6 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-
 describe('App renders child components', () => {
 
   it('renders with 181 district cards', () => {
@@ -44,15 +43,15 @@ describe('App manages state', () => {
     expect(wrapper.state('selectedCards').length).toEqual(0)
   })
 
-  // it('changes state when cards are selected', () => {
-  //   const wrapper = mount(<App />)
-  //
-  //   const card = wrapper.find('.card').first();
-  //
-  //   console.log(card.simulate('click'))
-  //
-  //   expect(wrapper.state('selectedCards').length).toEqual(1)
-  // })
+  it('changes state when cards are selected', () => {
+    const wrapper = mount(<App />)
+
+    const card = wrapper.find('.card').first();
+
+    card.simulate('click')
+
+    expect(wrapper.state('selectedCards').length).toEqual(1)
+  })
 
   it('a change in state renders Comparison Cards', () => {
     const wrapper = mount(<App />)
