@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DistrictCard from './DistrictCard';
+import { DistrictCard } from './DistrictCard';
 import { shallow, mount } from 'enzyme';
 
 describe('DistrictCard', () => {
@@ -41,7 +41,7 @@ describe('DistrictCard', () => {
 
     const wrapper = shallow(<DistrictCard district={mockDistrict} districtSet={mockData} districtSelect={mockSelect} selectedCards={[]}/>)
 
-    wrapper.simulate('click')
+    wrapper.simulate('click', {target: {value: mockDistrict} })
 
     expect(mockSelect).toHaveBeenCalled()
   })

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DistrictYear from './DistrictYear';
+import { DistrictYear } from './DistrictYear';
 import { shallow } from 'enzyme';
 
 describe('District Year', () => {
@@ -30,6 +30,6 @@ describe('District Year', () => {
 
     const wrapper = shallow(<DistrictYear year={mockYear} data={mockData} />)
 
-    expect(wrapper.find('.green')).toBeTruthy()    
+    expect(wrapper.find('.green')).toBeTruthy()
   })
 })
