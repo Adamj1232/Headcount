@@ -5,7 +5,11 @@ import PropTypes from 'prop-types'
 export const DistrictCard = ({ district, districtSet, districtSelect, selectedCards }) => {
   let locationKeys = Object.keys(districtSet)
   const yearArray = Object.keys(districtSet[locationKeys]).map( (year, yearIndex) =>
-    <DistrictYear key={yearIndex} year={year} data={districtSet[locationKeys][year]}/>
+    <DistrictYear
+      key={yearIndex}
+      year={year}
+      data={districtSet[locationKeys][year]}
+    />
   ) 
 
   const handleClick = (e, district)=>{

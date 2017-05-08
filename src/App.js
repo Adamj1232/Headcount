@@ -21,7 +21,6 @@ export default class App extends Component {
   findByName(input) {
     let searchedMatches = this.dataSetRetrieve.findAllMatches(input)
     this.setState({dataSet: searchedMatches })
-    // console.log(this.state.dataSet)
     this.setState({dataSet: searchedMatches })
   }
 
@@ -29,14 +28,14 @@ export default class App extends Component {
     if(this.state.selectedCards.length >= 2) {
       if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
         alert('Please Select Different Districts to Compare')
-       throw new Error('Compare Different Districts!')
+        throw new Error('Compare Different Districts!')
       }
       this.state.selectedCards.shift()
       this.state.selectedCards.push(selectedLocations)
     } else {
       if(this.state.selectedCards[0] === selectedLocations || this.state.selectedCards[1] === selectedLocations) {
         alert('Please Select Different Districts to Compare')
-       throw new Error('Compare Different Districts!')
+        throw new Error('Compare Different Districts!')
       }
       this.state.selectedCards.push(selectedLocations)
     }
@@ -56,7 +55,8 @@ export default class App extends Component {
       districtArray = newArr.map( (district, index) =>
         <DistrictCard
           district={district}
-          key={index} districtSet={this.state.dataSet[index]} districtSelect={this.handleCardSelect.bind(this)}
+          key={index} districtSet={this.state.dataSet[index]}
+          districtSelect={this.handleCardSelect.bind(this)}
           selectedCards={this.state.selectedCards}
         />)
     })
@@ -79,7 +79,9 @@ export default class App extends Component {
             key={Math.random()}
           />
           <ComparisonCard
-            cardsToCompare={this.state.selectedCards} dataSet={this.dataSetRetrieve}
+            cardsToCompare={this.state.selectedCards}
+            dataSet={this.dataSetRetrieve}
+            key={Math.random()}
           />
           <ComparedCard
             district={selectedCard2.location}

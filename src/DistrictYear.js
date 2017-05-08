@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 export const DistrictYear = ({year, data}) => {
 
   return (
-      <section className={data > 0.5 ? 'green' : 'red'}>
-        <div className='card-data'>
-          {year} : {data}
-        </div>
-      </section>
-    )
+    <section className={data > 0.5 ? 'green' : 'red'}>
+      <div className='card-data'>
+        {year} : {data}
+      </div>
+    </section>
+  )
 }
 
 DistrictYear.propTypes = {

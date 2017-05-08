@@ -95,8 +95,6 @@ nav input {
   justify-content: center;
   border-bottom: 1px solid darkgrey;
   background-color: rgba(211,211,211,0.5);
-
-
 }
 
 .location {
@@ -121,21 +119,20 @@ nav input {
   .selected-cards {
     flex-wrap: wrap;
   }
+  
   .compared {
     order: -1;
   }
 }
 
 @media (max-width: 590px){
+  header {
+    font-size: 1.75em;
+  }
 
   .compared {
     order: 0;
   }
-
-  header {
-    font-size: 1.75em;
-    }
-
 }
 
 @media (max-width: 360px){

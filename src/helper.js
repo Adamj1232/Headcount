@@ -50,7 +50,6 @@ export default class DistrictRepository {
         matches.push( {[district] :this.data[district]} )
       }
     })
-    // console.log(matches +'from function')
     return matches
   }
 

@@ -11,9 +11,9 @@ export const ComparisonCard = ({cardsToCompare, dataSet}) => {
 
   } else {
     const comparisonObject = dataSet.compareDistrictAverages(cardsToCompare[0], cardsToCompare[1])
-    const comparisonData = Object.keys(comparisonObject).map( (key) => {
+    const comparisonData = Object.keys(comparisonObject).map( (key, index) => {
       return (
-        <section>
+        <section  key={index}>
           <h2 className="comparison-district">
             {key}
           </h2>
